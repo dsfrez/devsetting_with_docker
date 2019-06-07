@@ -20,10 +20,15 @@ ENV CLATE_VERSION=0.2 \
 RUN apt-get update
 
 RUN apt-get install -y \
+    locales \
     build-essential \
     git \
     curl \
-    wget
+    wget \
+    vim
+
+RUN locale-gen ko_KR.UTF-8
+ENV LC_ALL ko_KR.UTF-8
 
 RUN mkdir -p $HOME/github \
     git clone https://github.com/dsfrez/devsetting $HOME/github/devsetting
